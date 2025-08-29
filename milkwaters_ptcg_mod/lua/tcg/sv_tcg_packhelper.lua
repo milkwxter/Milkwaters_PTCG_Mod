@@ -19,7 +19,7 @@ function TCG.GeneratePackFrom(packID)
         end
     end
 	
-    for i = 1, numCards do
+    for i = 1, 10 do
         local cardName = weightedPool[math.random(#weightedPool)]
         table.insert(result, cardName)
     end
@@ -28,7 +28,10 @@ function TCG.GeneratePackFrom(packID)
 end
 
 function TCG.OpenPack(packID)
+	-- get all the cards he got from the pack
     local cards = TCG.GeneratePackFrom(packID)
+	
+	-- print some stuff to console
     print("[TCG] You opened a pack from:", packID)
     for _, cardName in ipairs(cards) do
         local cardData = TCG.PackPool[packID].cardPool[cardName]
@@ -36,5 +39,7 @@ function TCG.OpenPack(packID)
         local value = cardData.value or -1
         print(string.format(" - %s [%s]: Worth %s points", cardName, rarity, value))
     end
+	
+	-- give the cards to the client
 	return cards
 end

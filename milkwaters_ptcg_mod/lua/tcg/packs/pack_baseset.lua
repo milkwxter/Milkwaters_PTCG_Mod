@@ -14,24 +14,16 @@ local pack = {
 	},
     cardPool = {
         ["Bulbasaur"] = {
-            rarity = "Common",
-            value = 1,
-			setnumber = 44
+            rarity = "Common", value = 1, setnumber = 44
         },
         ["Growlithe"] = {
-            rarity = "Uncommon",
-            value = 5,
-			setnumber = 28
+            rarity = "Uncommon", value = 5, setnumber = 28
         },
         ["Dragonair"] = {
-            rarity = "Rare",
-            value = 10,
-			setnumber = 18
+            rarity = "Rare", value = 10, setnumber = 18
         },
         ["Mewtwo"] = {
-            rarity = "Rare Holo",
-            value = 1000,
-			setnumber = 10
+            rarity = "Rare Holo", value = 1000, setnumber = 10
         }
     }
 }
