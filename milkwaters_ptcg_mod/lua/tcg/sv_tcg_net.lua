@@ -21,8 +21,6 @@ net.Receive("TCG_RequestOpenPack", function(len, ply)
 
 	-- get his cards
     local cards = TCG.OpenPack(packID)
-	print("We opened it!")
-	PrintTable(cards)
 
     -- send results to client
     net.Start("TCG_PackOpened")

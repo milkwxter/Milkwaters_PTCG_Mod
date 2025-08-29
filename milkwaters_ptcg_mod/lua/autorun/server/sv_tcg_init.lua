@@ -14,4 +14,5 @@ if SERVER then
 	include("tcg/sv_tcg_packhelper.lua")
 	include("tcg/sv_tcg_chat.lua")
 	include("tcg/sv_tcg_net.lua")
+	include("tcg/sv_tcg_debug.lua")
 end
