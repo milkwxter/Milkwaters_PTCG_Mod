@@ -16,18 +16,36 @@ local pack = {
 		Common = 50
 	},
     cardPool = {
-        ["Bulbasaur"] = {
-            rarity = "Common", value = 1, setnumber = 44, cardType = "basic"
+        ["Alakazam"] = {
+            rarity = "Rare Holo", value = 1000, setnumber = 1, cardType = "stage2"
         },
-        ["Growlithe"] = {
-            rarity = "Uncommon", value = 5, setnumber = 28, cardType = "basic"
+        ["Blastoise"] = {
+            rarity = "Rare Holo", value = 1000, setnumber = 2, cardType = "stage2"
+        },
+        ["Chansey"] = {
+            rarity = "Rare Holo", value = 1000, setnumber = 3, cardType = "basic"
+        },
+        ["Charizard"] = {
+            rarity = "Rare Holo", value = 1000, setnumber = 4, cardType = "stage2"
+        },
+        ["Mewtwo"] = {
+            rarity = "Rare Holo", value = 1000, setnumber = 10, cardType = "basic"
         },
         ["Dragonair"] = {
             rarity = "Rare", value = 10, setnumber = 18, cardType = "stage1"
         },
-        ["Mewtwo"] = {
-            rarity = "Rare Holo", value = 1000, setnumber = 10, cardType = "basic"
-        }
+        ["Arcanine"] = {
+            rarity = "Uncommon", value = 5, setnumber = 23, cardType = "stage1"
+        },
+        ["Growlithe"] = {
+            rarity = "Uncommon", value = 5, setnumber = 28, cardType = "basic"
+        },
+        ["Bulbasaur"] = {
+            rarity = "Common", value = 1, setnumber = 44, cardType = "basic"
+        },
+        ["Double Colorless Energy"] = {
+            rarity = "Uncommon", value = 5, setnumber = 96, cardType = "specialenergy"
+        },
     },
 	extraCardPool = {
 		["Fighting Energy"] = {

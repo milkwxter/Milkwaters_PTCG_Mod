@@ -130,5 +130,54 @@ function TCG.ShowInventoryMenu(inventory)
         cardImage:SetSize(128, 128)
         cardImage:SetPos(6, 6)
         cardImage:SetImage(matPath)
+		
+		local hoverFrame
+
+		cardPanel.Think = function()
+			if cardPanel:IsHovered() then
+				if not IsValid(hoverFrame) then
+					hoverFrame = vgui.Create("DFrame")
+					hoverFrame:SetSize(300, 420)
+					hoverFrame:SetTitle(cardName)
+					hoverFrame:SetDraggable(false)
+					hoverFrame:ShowCloseButton(false)
+					hoverFrame:MakePopup()
+					hoverFrame:SetKeyboardInputEnabled(false)
+
+					local x, y = cardPanel:LocalToScreen(cardPanel:GetWide() + 10, 0)
+					hoverFrame:SetPos(x, y)
+
+					local bigImage = vgui.Create("DImage", hoverFrame)
+					bigImage:SetSize(256, 256)
+					bigImage:CenterHorizontal()
+					bigImage:SetPos(bigImage:GetX(), 40)
+					bigImage:SetImage(matPath)
+
+					local info = {
+						"Set: " .. packID,
+						"Set Number: " .. setNumber,
+						"Identifier: " .. cardIdentifier,
+						"Rarity: " .. (cardData.rarity or "Unknown"),
+						"Type: " .. (cardData.cardType or "Unknown"),
+						"Value: " .. (cardData.value or 0),
+						"Quantity Owned: " .. quantity
+					}
+
+					for i, line in ipairs(info) do
+						local label = vgui.Create("DLabel", hoverFrame)
+						label:SetText(line)
+						label:SetFont("DermaDefault")
+						label:SetTextColor(color_white)
+						label:SizeToContents()
+						label:SetPos(20, 310 + (i - 1) * 15)
+					end
+				end
+			else
+				if IsValid(hoverFrame) then
+					hoverFrame:Remove()
+				end
+			end
+		end
+
     end
 end
