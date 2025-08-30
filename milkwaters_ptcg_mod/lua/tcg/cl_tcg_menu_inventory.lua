@@ -89,13 +89,13 @@ function TCG.ShowInventoryMenu(inventory)
     grid:SetSpaceY(10)
     grid:DockMargin(10, 10, 10, 10)
 	
-    if not inventory then
-        local label = vgui.Create("DLabel", scroll)
-        label:SetText("No cards found.")
+    if #inventory == 0 then
+        local label = vgui.Create("DLabel", frame)
+        label:SetText("No cards found. Why not open a pack?")
         label:SetFont("DermaLarge")
         label:SetTextColor(color_white)
-        label:Dock(TOP)
-        label:DockMargin(10, 10, 10, 10)
+        label:Dock(FILL)
+		label:DockMargin(10, 10, 10, 10)
         return
     end
 

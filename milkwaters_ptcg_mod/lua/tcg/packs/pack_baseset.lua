@@ -70,11 +70,53 @@ local pack = {
         ["Dragonair"] = {
             rarity = "Rare", value = 10, setnumber = 18, cardType = "stage1"
         },
+        ["Dugtrio"] = {
+            rarity = "Rare", value = 10, setnumber = 19, cardType = "stage1"
+        },
+        ["Electabuzz"] = {
+            rarity = "Rare", value = 10, setnumber = 20, cardType = "basic"
+        },
+        ["Electrode"] = {
+            rarity = "Rare", value = 10, setnumber = 21, cardType = "stage1"
+        },
+        ["Pidgeotto"] = {
+            rarity = "Rare", value = 10, setnumber = 22, cardType = "stage1"
+        },
         ["Arcanine"] = {
             rarity = "Uncommon", value = 5, setnumber = 23, cardType = "stage1"
         },
+        ["Charmeleon"] = {
+            rarity = "Uncommon", value = 5, setnumber = 24, cardType = "stage1"
+        },
+        ["Dewgong"] = {
+            rarity = "Uncommon", value = 5, setnumber = 25, cardType = "stage1"
+        },
+        ["Dratini"] = {
+            rarity = "Uncommon", value = 5, setnumber = 26, cardType = "basic"
+        },
+        ["Farfetch'd"] = {
+            rarity = "Uncommon", value = 5, setnumber = 27, cardType = "basic"
+        },
         ["Growlithe"] = {
             rarity = "Uncommon", value = 5, setnumber = 28, cardType = "basic"
+        },
+        ["Haunter"] = {
+            rarity = "Uncommon", value = 5, setnumber = 29, cardType = "stage1"
+        },
+        ["Ivysaur"] = {
+            rarity = "Uncommon", value = 5, setnumber = 30, cardType = "stage1"
+        },
+        ["Jynx"] = {
+            rarity = "Uncommon", value = 5, setnumber = 31, cardType = "basic"
+        },
+        ["Kadabra"] = {
+            rarity = "Uncommon", value = 5, setnumber = 32, cardType = "stage1"
+        },
+        ["Kakuna"] = {
+            rarity = "Uncommon", value = 5, setnumber = 33, cardType = "stage1"
+        },
+        ["Machoke"] = {
+            rarity = "Uncommon", value = 5, setnumber = 34, cardType = "stage1"
         },
         ["Bulbasaur"] = {
             rarity = "Common", value = 1, setnumber = 44, cardType = "basic"

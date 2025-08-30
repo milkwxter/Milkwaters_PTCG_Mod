@@ -49,6 +49,6 @@ net.Receive("TCG_RequestInventory", function(len, ply)
     local inventory = TCG.GetInventory(ply)
 
     net.Start("TCG_SendInventory")
-    net.WriteTable(inventory)
+    net.WriteTable(inventory or {})
     net.Send(ply)
 end)
