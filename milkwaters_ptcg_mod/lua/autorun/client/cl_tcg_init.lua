@@ -6,4 +6,5 @@ if CLIENT then
 	include("tcg/sh_tcg_core.lua")
 	include("tcg/cl_tcg_menu.lua")
 	include("tcg/cl_tcg_net.lua")
+	include("tcg/cl_tcg_menu_inventory.lua")
 end

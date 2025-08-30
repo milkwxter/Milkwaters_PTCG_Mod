@@ -20,10 +20,20 @@ function TCG.GeneratePackFrom(packID)
     end
 	
 	-- open some cards based off the pack
-    for i = 1, pack.cardsPerPack do
+	local howManyExtraCardsToOpen = pack.extraCardsPerPack
+	local howManyCardsToOpen = pack.cardsPerPack - howManyExtraCardsToOpen
+    for i = 1, howManyCardsToOpen do
         local cardName = weightedPool[math.random(#weightedPool)]
         table.insert(result, cardName)
     end
+	
+	-- if there are extra cards (probably energy or VSTAR) give at end
+	for i = 1, pack.extraCardsPerPack or 0 do
+		local pool = pack.extraCardPool
+		local cardNames = table.GetKeys(pool)
+		local cardName = cardNames[math.random(#cardNames)]
+		table.insert(result, cardName)
+	end
 
 	-- give the result back
     return result

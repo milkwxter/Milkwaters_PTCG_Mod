@@ -6,6 +6,7 @@ if SERVER then
 	AddCSLuaFile("tcg/sh_tcg_core.lua")
 	AddCSLuaFile("tcg/cl_tcg_menu.lua")
 	AddCSLuaFile("tcg/cl_tcg_net.lua")
+	AddCSLuaFile("tcg/cl_tcg_menu_inventory.lua")
 
 	-- load CORE first
 	include("tcg/sh_tcg_core.lua")
@@ -15,4 +16,5 @@ if SERVER then
 	include("tcg/sv_tcg_chat.lua")
 	include("tcg/sv_tcg_net.lua")
 	include("tcg/sv_tcg_debug.lua")
+	include("tcg/sv_tcg_inventory.lua")
 end

@@ -30,6 +30,11 @@ function TCG.OpenMenu()
 	collectionBtn:SetText("Collection")
 	collectionBtn:SetSize(btnWidth, 30)
 	collectionBtn:SetPos(10, btnY)
+	collectionBtn.DoClick = function()
+		-- ask server for your collection
+		net.Start("TCG_RequestInventory")
+		net.SendToServer()
+	end
 
 	local sellBtn = vgui.Create("DButton", topBar)
 	sellBtn:SetText("Sell")
@@ -56,29 +61,33 @@ function TCG.OpenMenu()
 
 	-- create all the pack entries
     for packID, pack in pairs(TCG.PackPool) do
-        local cardCount = table.Count(pack.cardPool)
+        local cardCount = table.Count(pack.cardPool) + table.Count(pack.extraCardPool)
 
         local entry = scroll:Add("DPanel")
         entry:Dock(TOP)
         entry:SetTall(100)
         entry:DockMargin(0, 0, 0, 10)
+		
+		-- do a pack picture
+		local matString = "materials/packs/" .. pack.id .. ".png"
+		local packImage = vgui.Create("DImage", entry)
+		packImage:SetSize(150, 150)
+		packImage:SetPos(-30, -25)
+		packImage:SetImage(matString)
 
+		-- fill in the entry (called every frame)
         entry.Paint = function(self, w, h)
 			-- paint tha box
             draw.RoundedBox(4, 0, 0, w, h, Color(40, 40, 60))
 			
-			-- do a pack picture
-			local matString = "materials/packs/" .. pack.id .. ".png"
-			local packImage = vgui.Create("DImage", entry)
-			packImage:SetSize(150, 150)
-			packImage:SetPos(-30, -25)
-			packImage:SetImage(matString)
+			-- move beside the image
+			local x = 15 + packImage:GetWide()
 			
 			-- draw stats of pack
-            draw.SimpleText(pack.displayName, "DermaLarge", 15 + packImage:GetWide(), 5, color_white, TEXT_ALIGN_LEFT)
-            draw.SimpleText(pack.description, "DermaDefault", 15 + packImage:GetWide(), 35, color_white, TEXT_ALIGN_LEFT)
-            draw.SimpleText("Total cards in this set: " .. (cardCount or "Unknown"), "DermaDefault", 15 + packImage:GetWide(), 55, color_white, TEXT_ALIGN_LEFT)
-            draw.SimpleText("Cards per pack: " .. (pack.cardsPerPack or "Unknown"), "DermaDefault", 15 + packImage:GetWide(), 75, color_white, TEXT_ALIGN_LEFT)
+            draw.SimpleText(pack.displayName, "DermaLarge", x, 5, color_white)
+			draw.SimpleText(pack.description, "DermaDefault", x, 35, color_white)
+			draw.SimpleText("Total cards: " .. cardCount, "DermaDefault", x, 55, color_white)
+			draw.SimpleText("Cards per pack: " .. pack.cardsPerPack, "DermaDefault", x, 75, color_white)
         end
 
 		-- here is how you open a pack
@@ -128,7 +137,7 @@ function TCG.ShowOpenedPackMenu(packID, cards)
 		local totalValue = 0
 
         for _, cardName in ipairs(cards) do
-            local card = pack.cardPool[cardName]
+            local card = pack.cardPool[cardName] or pack.extraCardPool[cardName]
 			
 			-- increment local stats
 			local rarity = card.rarity or "Unknown"
@@ -177,7 +186,7 @@ function TCG.ShowOpenedPackMenu(packID, cards)
     local function showCardReveal(index)
 		-- save stats of the card you are revealing
         local cardName = cards[index]
-        local card = pack.cardPool[cardName]
+        local card = pack.cardPool[cardName] or pack.extraCardPool[cardName]
 		
 		-- list of sounds
 		local soundList = {

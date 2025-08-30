@@ -5,6 +5,10 @@ util.AddNetworkString("TCG_OpenMenu")
 util.AddNetworkString("TCG_RequestOpenPack")
 util.AddNetworkString("TCG_PackOpened")
 
+-- inventory
+util.AddNetworkString("TCG_RequestInventory")
+util.AddNetworkString("TCG_SendInventory")
+
 ----------------------------------------------
 
 -- player wants to open pack
@@ -21,6 +25,14 @@ net.Receive("TCG_RequestOpenPack", function(len, ply)
 
 	-- get his cards
     local cards = TCG.OpenPack(packID)
+	
+	-- register them to his SQL DB entry
+	for _, cardName in ipairs(cards) do
+		local card = pack.cardPool[cardName] or pack.extraCardPool[cardName]
+		if card and card.setnumber then
+			TCG.AddCardToInventory(ply, packID, card.setnumber)
+		end
+	end
 
     -- send results to client
     net.Start("TCG_PackOpened")

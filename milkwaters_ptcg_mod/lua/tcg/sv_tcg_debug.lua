@@ -13,3 +13,8 @@ concommand.Add("tcg_reloadpacks", function(ply, cmd, args)
     TCG.ReloadPacks()
     print("[TCG] Packs reloaded by", IsValid(ply) and ply:Nick() or "console")
 end)
+
+concommand.Add("tcg_printinventory", function(ply, cmd, args)
+    local inv = TCG.GetInventory(ply)
+    PrintTable(inv)
+end)

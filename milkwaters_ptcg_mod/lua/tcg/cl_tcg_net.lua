@@ -19,11 +19,18 @@ net.Receive("TCG_PackOpened", function()
 	-- print some stuff to console for the client
     print("[TCG] You opened a pack from:", packID)
     for _, cardName in ipairs(cards) do
-        local cardData = TCG.PackPool[packID].cardPool[cardName]
+        local cardData = TCG.PackPool[packID].cardPool[cardName] or TCG.PackPool[packID].extraCardPool[cardName]
         local rarity = cardData.rarity or "ERROR"
         local value = cardData.value or -1
         print(string.format(" - %s [%s]: Worth %s points", cardName, rarity, value))
     end
 
     TCG.ShowOpenedPackMenu(packID, cards)
+end)
+
+-- recieve inventory, show the menu
+net.Receive("TCG_SendInventory", function()
+    local inventory = net.ReadTable()
+	TCG.BuildSetIndex()
+    TCG.ShowInventoryMenu(inventory)
 end)
