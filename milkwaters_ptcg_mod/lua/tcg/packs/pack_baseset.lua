@@ -28,8 +28,44 @@ local pack = {
         ["Charizard"] = {
             rarity = "Rare Holo", value = 1000, setnumber = 4, cardType = "stage2"
         },
+        ["Clefairy"] = {
+            rarity = "Rare Holo", value = 1000, setnumber = 5, cardType = "basic"
+        },
+        ["Gyarados"] = {
+            rarity = "Rare Holo", value = 1000, setnumber = 6, cardType = "stage1"
+        },
+        ["Hitmonchan"] = {
+            rarity = "Rare Holo", value = 1000, setnumber = 7, cardType = "basic"
+        },
+        ["Machamp"] = {
+            rarity = "Rare Holo", value = 1000, setnumber = 8, cardType = "stage2"
+        },
+        ["Magneton"] = {
+            rarity = "Rare Holo", value = 1000, setnumber = 9, cardType = "stage1"
+        },
         ["Mewtwo"] = {
             rarity = "Rare Holo", value = 1000, setnumber = 10, cardType = "basic"
+        },
+        ["Nidoking"] = {
+            rarity = "Rare Holo", value = 1000, setnumber = 11, cardType = "stage2"
+        },
+        ["Ninetales"] = {
+            rarity = "Rare Holo", value = 1000, setnumber = 12, cardType = "stage1"
+        },
+        ["Poliwrath"] = {
+            rarity = "Rare Holo", value = 1000, setnumber = 13, cardType = "stage2"
+        },
+        ["Raichu"] = {
+            rarity = "Rare Holo", value = 1000, setnumber = 14, cardType = "stage1"
+        },
+        ["Venusaur"] = {
+            rarity = "Rare Holo", value = 1000, setnumber = 15, cardType = "stage2"
+        },
+        ["Zapdos"] = {
+            rarity = "Rare Holo", value = 1000, setnumber = 16, cardType = "basic"
+        },
+        ["Beedrill"] = {
+            rarity = "Rare", value = 10, setnumber = 17, cardType = "stage2"
         },
         ["Dragonair"] = {
             rarity = "Rare", value = 10, setnumber = 18, cardType = "stage1"
