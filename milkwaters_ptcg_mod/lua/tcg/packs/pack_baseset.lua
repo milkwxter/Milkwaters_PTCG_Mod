@@ -118,6 +118,33 @@ local pack = {
         ["Machoke"] = {
             rarity = "Uncommon", value = 5, setnumber = 34, cardType = "stage1"
         },
+        ["Magikarp"] = {
+            rarity = "Uncommon", value = 5, setnumber = 35, cardType = "basic"
+        },
+        ["Magmar"] = {
+            rarity = "Uncommon", value = 5, setnumber = 36, cardType = "basic"
+        },
+        ["Nidorino"] = {
+            rarity = "Uncommon", value = 5, setnumber = 37, cardType = "stage1"
+        },
+        ["Poliwhirl"] = {
+            rarity = "Uncommon", value = 5, setnumber = 38, cardType = "stage1"
+        },
+        ["Porygon"] = {
+            rarity = "Uncommon", value = 5, setnumber = 39, cardType = "basic"
+        },
+        ["Raticate"] = {
+            rarity = "Uncommon", value = 5, setnumber = 40, cardType = "stage1"
+        },
+        ["Seel"] = {
+            rarity = "Uncommon", value = 5, setnumber = 41, cardType = "basic"
+        },
+        ["Wartortle"] = {
+            rarity = "Uncommon", value = 5, setnumber = 42, cardType = "stage1"
+        },
+        ["Abra"] = {
+            rarity = "Common", value = 5, setnumber = 43, cardType = "basic"
+        },
         ["Bulbasaur"] = {
             rarity = "Common", value = 1, setnumber = 44, cardType = "basic"
         },
