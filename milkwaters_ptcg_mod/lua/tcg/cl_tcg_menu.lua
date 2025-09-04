@@ -136,8 +136,10 @@ function TCG.ShowOpenedPackMenu(packID, cards)
 		local rarityCount = {}
 		local totalValue = 0
 
-        for _, cardName in ipairs(cards) do
+        for _, tempCard in ipairs(cards) do
+			local cardName = tempCard.name
             local card = pack.cardPool[cardName] or pack.extraCardPool[cardName]
+			local isNew = tempCard.new
 			
 			-- increment local stats
 			local rarity = card.rarity or "Unknown"
@@ -161,7 +163,10 @@ function TCG.ShowOpenedPackMenu(packID, cards)
 				
 				-- draw some simple text
                 draw.SimpleText(cardName .. " - " .. pack.displayNameShort .. "#" .. card.setnumber, "DermaDefaultBold", cardImage:GetWide() + 10, 5, color_white, TEXT_ALIGN_LEFT)
-                draw.SimpleText("Rarity: " .. (card.rarity or "Unknown"), "DermaDefault", cardImage:GetWide() + 10, 30, color_white, TEXT_ALIGN_LEFT)
+                draw.SimpleText("Rarity: " .. (card.rarity or "Unknown"), "DermaDefault", cardImage:GetWide() + 10, 25, color_white, TEXT_ALIGN_LEFT)
+				if isNew then
+					draw.SimpleText("NEW CARD!", "DermaDefaultBold", cardImage:GetWide() + 10, 45, Color(255, 0, 0), TEXT_ALIGN_LEFT)
+				end
             end
         end
 		
@@ -185,8 +190,9 @@ function TCG.ShowOpenedPackMenu(packID, cards)
 
     local function showCardReveal(index)
 		-- save stats of the card you are revealing
-        local cardName = cards[index]
+        local cardName = cards[index].name
         local card = pack.cardPool[cardName] or pack.extraCardPool[cardName]
+		local isNew = cards[index].new
 		
 		-- list of sounds
 		local soundList = {
@@ -231,6 +237,18 @@ function TCG.ShowOpenedPackMenu(packID, cards)
         rarityLabel:SetTextColor(color_white)
         rarityLabel:SizeToContents()
         rarityLabel:SetPos(20, 80)
+		
+		if isNew then
+			local newLabel = vgui.Create("DLabel", frame)
+			newLabel:SetText("NEW CARD!")
+			newLabel:SetFont("DermaDefaultBold")
+			newLabel:SetTextColor(Color(255, 0, 0))
+			newLabel:SizeToContents()
+			newLabel:SetPos(20, 110)
+			
+			-- pog sound
+			surface.PlaySound("tcg/card_reveal_pog.wav")
+		end
 
 		-- make a button to go to the next card OR finish, depends on the logic
         local nextBtn = vgui.Create("DButton", frame)

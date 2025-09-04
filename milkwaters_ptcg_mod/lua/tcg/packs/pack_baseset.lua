@@ -148,6 +148,39 @@ local pack = {
         ["Bulbasaur"] = {
             rarity = "Common", value = 1, setnumber = 44, cardType = "basic"
         },
+        ["Caterpie"] = {
+            rarity = "Common", value = 1, setnumber = 45, cardType = "basic"
+        },
+        ["Charmander"] = {
+            rarity = "Common", value = 1, setnumber = 46, cardType = "basic"
+        },
+        ["Diglett"] = {
+            rarity = "Common", value = 1, setnumber = 47, cardType = "basic"
+        },
+        ["Doduo"] = {
+            rarity = "Common", value = 1, setnumber = 48, cardType = "basic"
+        },
+        ["Drowzee"] = {
+            rarity = "Common", value = 1, setnumber = 49, cardType = "basic"
+        },
+        ["Gastly"] = {
+            rarity = "Common", value = 1, setnumber = 50, cardType = "basic"
+        },
+        ["Koffing"] = {
+            rarity = "Common", value = 1, setnumber = 51, cardType = "basic"
+        },
+        ["Machop"] = {
+            rarity = "Common", value = 1, setnumber = 52, cardType = "basic"
+        },
+        ["Magnemite"] = {
+            rarity = "Common", value = 1, setnumber = 53, cardType = "basic"
+        },
+        ["Metapod"] = {
+            rarity = "Common", value = 1, setnumber = 54, cardType = "basic"
+        },
+        ["Nidoran♂"] = {
+            rarity = "Common", value = 1, setnumber = 55, cardType = "basic"
+        },
         ["Double Colorless Energy"] = {
             rarity = "Uncommon", value = 5, setnumber = 96, cardType = "specialenergy"
         },

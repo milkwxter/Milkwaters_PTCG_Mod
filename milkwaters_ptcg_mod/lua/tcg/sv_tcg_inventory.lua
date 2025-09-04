@@ -44,6 +44,25 @@ function TCG.GetInventory(ply)
     return sql.Query("SELECT * FROM tcg_inventory WHERE steamid = '" .. steamID .. "'")
 end
 
+-- return how many of a certain card a player owns
+function TCG.GetCardQuantity(ply, packID, setNumber)
+	-- safety debug
+	if not ply or not packID or not setNumber then
+        print("[TCG] GetCardQuantity: Missing argument(s)", ply, packID, setNumber)
+        return 0
+    end
+	
+    local steamID = ply:SteamID()
+    local query = string.format(
+        "SELECT quantity FROM tcg_inventory WHERE steamid = '%s' AND packid = '%s' AND setnumber = %d",
+        steamID, packID, setNumber
+    )
+
+    local result = sql.QueryValue(query)
+    return tonumber(result) or 0
+end
+
+
 -- when a player asks for their inventory, give it to them
 net.Receive("TCG_RequestInventory", function(len, ply)
     local inventory = TCG.GetInventory(ply)
